@@ -1,17 +1,23 @@
+##pollutantmean.R
 
-pollutantmean<- function(directory,pollutant, id=1:332){
-
-  data<- list.files(directory,full.names=TRUE)
-
+pollutantmean<- function(directory,pollutant="sulfate", id=1:332){
+    
+    cd ~Desktop/directory
+    
+    getwd()
+    
+    dat<-list.files(getwd())
+    
+    dat
+    
     mydata<- data.frame()
-
+    
     for(i in id){
-      mydata<-rbind(mydata,read.csv(data[i]))
+        mydata<-rbind(mydata,read.csv(dat[i], head=TRUE))
     }
+    
+    mean(as.numeric(mydata$pollutant), na.rm=TRUE)
+}
 
-  result<- mean(mydata$pollutant, na.rm=TRUE)
-  
-  result
-  
-  }
+
   
