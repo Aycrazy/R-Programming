@@ -16,8 +16,11 @@ pollutantmean<- function(directory,pollutant="sulfate", id=1:332){
         mydata<-rbind(mydata,read.csv(dat[i], head=TRUE))
     }
     
-    mean(as.numeric(mydata$pollutant), na.rm=TRUE)
+    mydata
+        
+    result<- mean(mydata[[pollutant]], na.rm=TRUE)
+  
+    result
+
 }
 
-
-  
