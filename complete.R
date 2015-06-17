@@ -24,20 +24,18 @@ complete <- function(directory, id = 1:332) {
     
     dat<-list.files(getwd())
 
-    nobs<- data.frame()
+    nobs<- c()
     
     result<- data.frame()
     
     for(i in id){
-        my_ids[[i]]<-read.csv(dat[[i]], header=TRUE)
-        nobs[[i]]<- nrow(na.omit(my_ids[[i]]))
-        str(nobs)
+        my_ids<-read.csv(dat[[i]], header=TRUE)
+        complete_cases<- my_ids[na.omit(my_ids),]
+        nobs<- c(nobs, nrow(complete_cases))
     } 
     
-    output<- do.call(rbind, nobs)
-    
-    str(output)
-
-    data.frame(cbind(id,output))
+   result<-data.frame(cbind(id, nobs))
+   
+   result
 }
 
