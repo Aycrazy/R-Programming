@@ -13,3 +13,27 @@ complete <- function(directory, id = 1:332) {
         ## where 'id' is the monitor ID number and 'nobs' is the
         ## number of complete cases
 }
+
+##complete.R
+
+complete <- function(directory, id = 1:332) {
+    
+    cd ~Desktop/directory
+    
+    getwd()
+    
+    dat<-list.files(getwd())
+
+    nobs<- data.frame()
+    
+    result<- data.frame()
+    
+    for(i in id){
+        my_ids<-read.csv(dat[i], header=TRUE)
+        nobs<- nrow(na.omit(my_ids))
+        result$nobs<-
+    } 
+
+    data.frame(cbind(id,nobs))
+}
+
