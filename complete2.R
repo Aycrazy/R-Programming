@@ -29,11 +29,15 @@ complete <- function(directory, id = 1:332) {
     result<- data.frame()
     
     for(i in id){
-        my_ids<-read.csv(dat[i], header=TRUE)
-        nobs<- nrow(na.omit(my_ids))
-        result$nobs<-
+        my_ids[[i]]<-read.csv(dat[[i]], header=TRUE)
+        nobs[[i]]<- nrow(na.omit(my_ids[[i]]))
+        str(nobs)
     } 
+    
+    output<- do.call(rbind, nobs)
+    
+    str(output)
 
-    data.frame(cbind(id,nobs))
+    data.frame(cbind(id,output))
 }
 
