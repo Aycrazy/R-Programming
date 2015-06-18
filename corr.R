@@ -35,7 +35,7 @@ corr<- function(directory, threshold = 0){
     
     complete_cases<- data.frame()
     
-    for(i in length(dat)){
+    for(i in threshold)){
         
         my_ids<-read.csv(dat[[i]], header=TRUE)
         complete_cases<- my_ids[complete.cases(my_ids),]
