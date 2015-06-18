@@ -21,3 +21,26 @@ corr<- function(directory, threshold = 0){
     
     for(i in threshold){
       
+corr<- function(directory, threshold = 0){
+    
+    cd ~Desktop/directory
+    
+    getwd()
+    
+    dat<-list.files(getwd())
+    
+    nitrate<- c()
+    
+    sulfate<- c()
+    
+    complete_cases<- data.frame()
+    
+    for(i in length(dat)){
+        
+        my_ids<-read.csv(dat[[i]], header=TRUE)
+        complete_cases<- my_ids[complete.cases(my_ids),]
+    }
+    
+    cor(complete_cases$sulfate, complete_cases$nitrate)
+    
+}
