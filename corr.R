@@ -11,16 +11,8 @@ corr <- function(directory, threshold = 0) {
         ## NOTE: Do not round the result!
 }
 
-corr<- function(directory, threshold = 0){
+c#corr
 
-   cd ~Desktop/directory
-    
-    getwd()
-    
-    dat<-list.files(getwd())
-    
-    for(i in threshold){
-      
 corr<- function(directory, threshold = 0){
     
     cd ~Desktop/directory
@@ -29,18 +21,19 @@ corr<- function(directory, threshold = 0){
     
     dat<-list.files(getwd())
     
-    nitrate<- c()
-    
-    sulfate<- c()
-    
+    cr<- numeric()
+
     complete_cases<- data.frame()
     
-    for(i in threshold)){
-        
-        my_ids<-read.csv(dat[[i]], header=TRUE)
+    for(i in 1:322){
+        my_ids<-read.csv(dat[[i]])
         complete_cases<- my_ids[complete.cases(my_ids),]
+        nobs<- c(nobs, nrow(complete_cases))
+        if(nobs > threshold){
+            cr<-c(cr, cor(complete_case$sulfate, complete_case$nitrate))
+        }
+
+        return(cr)
     }
-    
-    cor(complete_cases$sulfate, complete_cases$nitrate)
-    
+
 }
