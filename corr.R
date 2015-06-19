@@ -29,6 +29,7 @@ corr<- function(directory, threshold = 0){
         my_ids<-read.csv(dat[[i]])
         complete_cases<- my_ids[complete.cases(my_ids),]
         nobs<- c(nobs, nrow(complete_cases))
+        complete_cases<- data.frame(cbind(complete_cases, nobs))
         if(nobs > threshold){
             cr<-c(cr, cor(complete_case$sulfate, complete_case$nitrate))
         }
